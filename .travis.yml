@@ -13,4 +13,7 @@ before_install:
   - docker info
 
 script:
-  - bash docker_build_and_push
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - bash build_and_push_android_tools
+  - bash build_and_push_android_sdk
+  - bash build_and_push_android_emulator

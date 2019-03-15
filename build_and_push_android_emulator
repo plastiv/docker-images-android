@@ -1,0 +1,5 @@
+#!/bin/bash
+docker build -t android-emulator android-emulator/
+docker tag android-emulator $DOCKER_USERNAME/android-emulator
+docker images
+docker push $DOCKER_USERNAME/android-emulator

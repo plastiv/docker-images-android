@@ -1,0 +1,5 @@
+#!/bin/bash
+docker build -t android-sdk android-sdk/
+docker tag android-sdk $DOCKER_USERNAME/android-sdk
+docker images
+docker push $DOCKER_USERNAME/android-sdk
