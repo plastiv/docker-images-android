@@ -1,6 +1,17 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
 docker build -t android-tools android-tools/
 docker images
 docker tag android-tools $DOCKER_USERNAME/android-tools
 docker push $DOCKER_USERNAME/android-tools
+
+docker build -t android-sdk android-sdk/
+docker images
+docker tag android-sdk $DOCKER_USERNAME/android-sdk
+docker push $DOCKER_USERNAME/android-sdk
+
+docker build -t android-emulator android-emulator/
+docker images
+docker tag android-emulator $DOCKER_USERNAME/android-emulator
+docker push $DOCKER_USERNAME/android-emulator
