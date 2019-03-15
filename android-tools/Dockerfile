@@ -51,10 +51,11 @@ RUN DEBIAN_FRONTEND=noninteractive \
     && rm -rf /var/lib/apt/lists/*
 # http://stackoverflow.com/a/37604675/624706
 
-# Download and extract AndroidSDK
+# Download basic Android command line tools
 # Get latest version name from https://developer.android.com/studio/index.html#downloads
+ARG SDK_ARCHIVE_VERSION
 RUN cd /opt \
-    && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip \
+    && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/sdk-tools-linux-${SDK_ARCHIVE_VERSION}.zip \
     && unzip -q android-sdk.zip -d android-sdk-linux \
     && rm -f android-sdk.zip \
     && chown -R root.root android-sdk-linux

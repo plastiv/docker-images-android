@@ -1,5 +1,10 @@
 #!/bin/bash
-docker build -t android-emulator android-emulator/
+docker build \
+    --build-arg EMULATOR_API_LEVEL \
+    --build-arg EMULATOR_VARIANT \
+    --build-arg EMULATOR_ARCH \
+    -t android-emulator \
+    android-emulator/
 docker tag android-emulator $DOCKER_USERNAME/android-emulator
 docker images
 docker push $DOCKER_USERNAME/android-emulator

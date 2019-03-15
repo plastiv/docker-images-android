@@ -1,8 +1,8 @@
 FROM android-sdk:latest
 
-ARG EMULATOR_API_LEVEL=28
-ARG EMULATOR_VARIANT=google_apis
-ARG EMULATOR_ARCH=x86_64
+ARG EMULATOR_API_LEVEL
+ARG EMULATOR_VARIANT
+ARG EMULATOR_ARCH
 
 # Update AndroidSDK
 # Get ids from sdkmanager --list

@@ -1,7 +1,7 @@
 FROM android-tools:latest
 
-ARG BUILD_TOOLS_VERSION=28.0.3
-ARG PLATFORM_API_LEVEL=28
+ARG BUILD_TOOLS_VERSION
+ARG PLATFORM_API_LEVEL
 
 # Update AndroidSDK
 # Get ids from sdkmanager --list

@@ -1,5 +1,8 @@
 #!/bin/bash
-docker build -t android-tools android-tools/
+docker build \
+    --build-arg SDK_ARCHIVE_VERSION \
+    -t android-tools \
+    android-tools/
 docker tag android-tools $DOCKER_USERNAME/android-tools
 docker images
 docker push $DOCKER_USERNAME/android-tools
