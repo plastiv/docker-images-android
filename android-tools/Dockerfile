@@ -25,13 +25,12 @@ ARG SDK_ARCHIVE_VERSION
 RUN cd /opt \
     && wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/sdk-tools-linux-${SDK_ARCHIVE_VERSION}.zip \
     && unzip -q android-sdk.zip -d android-sdk-linux \
-    && rm -f android-sdk.zip \
-    && chown -R root.root android-sdk-linux
+    && rm -f android-sdk.zip
 
 # Add enviroment variables 
 # https://developer.android.com/studio/command-line/variables#envar
+ENV ANDROID_HOME /opt/android-sdk-linux
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
-ENV ANDROID_SDK_HOME ${ANDROID_SDK_ROOT}/sdk-home
 # /tools/bin - sdkmanager, avdmanager
 # /platform-tools - adb
 # /emulator - emulator, emulator-check 
